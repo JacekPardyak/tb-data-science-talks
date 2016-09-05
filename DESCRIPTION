@@ -6,8 +6,9 @@ Author: Robert M Flight <rflight79@gmail.com>
 Maintainer: Robert M Flight <rflight79@gmail.com>
 Description: Sends a tweet to various users with a job status
 License: CC0
+Depends:
+    twitteR
 Imports:
-    twitteR,
     lubridate,
     knitr
 VignetteBuilder: knitr

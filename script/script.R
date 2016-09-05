@@ -1,16 +1,89 @@
-apikey <- "JB6lZJeKJ78RD3QvUtXFwD9xy" #API Key
-apisecret <- "23UOMmZIzoYI4Pi6TX8h4DEirywbLaIgmW4P9dz5VNoqregouY" #API Secret
-token <- "382187895-iWUQji4HmpKeZ0Wi8LTqQPEXPQluQX5iD0z7Iq9r" #Access Token
-tokensecret <- "A6lX7xXE5rc7PZD2QVEv6Z3shJpVz3BhaIHg3UMgsSw2o" #Access token secret
+#jacek_pardyak #O-1
+#jacekpardyak
 
+# person you want to send direct message has to follow you
+# your app has to set up permissions:
+# Read, Write and Access direct messages
 
 library(twitteR)
-# grant interactive session
-options(httr_oauth_cache=T) 
-setup_twitter_oauth(apikey, apisecret, token, tokensecret)
 
-local_cache <- get("oauth_token", twitteR:::oauth_cache) # saves the oauth token so we can reuse it
-save(local_cache, file="data/oauth_cache.RData")
+dmSend(paste(Sys.time(), "test", sep = " "), "jacekpardyak")
 
-tweet("kk45s is a 4test") # make sure you can see a tweet
-#tweet("@Jacek_Pardyak this is a test") # check that you see notifications, change @username to your own username
+
+
+msg <- function(){# function to send a message
+  user <- readline(prompt="Enter a username: ")
+  text <- readline(prompt="Enter a text: ")
+  dmSend(text, user)
+  cat("Message sent")}
+
+?dmSend
+
+
+dmsg <- function(){
+  dmDestroy(
+    receMessages[[1]]$getId()
+    )
+  }
+
+received <- dmGet()
+sent     <- dmSent()
+messages <- c(received, sent)
+messages <- lapply(messages, function(x){cbind(x$id,
+                                               x$senderSN,
+                                               x$recipientSN,
+                                               x$text)})
+messages <- data.frame(matrix(unlist(messages),
+                              nrow = length(messages), byrow=T)) 
+names(messages) <- c("id", "sender", "recipient", "text")
+
+messages <- messages[order(messages[,"id"]),]
+
+i = 2
+message <- messages[i,]
+
+cat(paste(paste(message[,2], "said:", sep = " "), message[,4], sep = " "))
+
+# delete a message
+
+dmDestroy(received[[1]])
+
+print("la")
+or(i in 1:length(messages)){
+message <- messages[[i]]
+row <- cbind(id = message$id,
+             sender = message$senderSN,
+             recipient = message$recipientSN,
+             text = message$text)
+res <- rbind(row,res)
+}
+
+
+
+yy <- data.frame(tt)
+
+
+
+00
+chat[[1]]$`.->text`
+chat[[1]]$text
+
+message$id
+
+
+toDataFrame(chat[[1]])
+  sender
+  recipient
+  text
+summary(chat)
+
+chat$getSender()
+
+chat[[1]]
+class(chat)
+
+chat@text
+
+chat$toDataFrame()
+as.data.frame(chat)
+chat$t
