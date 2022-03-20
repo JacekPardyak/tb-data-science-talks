@@ -4,11 +4,16 @@ data <- readLines("2022-04-28/RestoReviewRawdata.csv")
 data[11]
 
 Encoding(data) <- 'UTF-8'
+
+ 
+data <- gsub("\"\u0080 ", "\"", data, fixed = TRUE)
 data <- gsub("\"b\"\"", "\"", data, fixed = TRUE)
 data <- gsub("\"\"\"", "\"", data, fixed = TRUE)
 data <- gsub("\"b'", "\"", data, fixed = TRUE)
 data <- gsub("'\"", "\"", data, fixed = TRUE)
 
+
+data <- gsub("\\xc2\\xb4", "'", data, fixed = TRUE)
 
 data <- gsub("\\xc3\\xa0", "à", data, fixed = TRUE)
 data <- gsub("\\xc3\\xa1", "á", data, fixed = TRUE)
@@ -49,8 +54,12 @@ writeLines(data, "2022-04-28/RestoReviewRawdataClean.csv", useBytes = TRUE)
 
 data <- read_csv("2022-04-28/RestoReviewRawdataClean.csv") %>%
   distinct(reviewText, restoId, reviewerId, .keep_all= TRUE)  %>%
-  filter(!is.na(reviewText)) %>% 
-  mutate(avgPrice = gsub("\u0080 ", "", avgPrice, fixed = TRUE))
+  filter(!is.na(reviewText)) %>%
+  mutate(reviewDate = gsub("mrt", "mar", reviewDate)) %>%
+  mutate(reviewDate = gsub("mei", "may.", reviewDate)) %>%
+  mutate(reviewDate = gsub("okt", "oct", reviewDate)) %>%
+  mutate(reviewDate = strptime(reviewDate, "%d %b. %Y")) %>% 
+  mutate(reviewDate = as.POSIXct(reviewDate))
 
 data %>% select('reviewText') %>% 
   filter(stringr::str_detect(reviewText, fixed("\\xe2"))) %>% first()
