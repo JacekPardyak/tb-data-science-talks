@@ -6,7 +6,10 @@ data[11]
 Encoding(data) <- 'UTF-8'
 
  
-data <- gsub("\"\u0080 ", "\"", data, fixed = TRUE)
+data <- gsub("\u0080 ", "", data, fixed = TRUE)
+data <- gsub("â\u0082¬ ", "", data, fixed = TRUE)
+
+ 
 data <- gsub("\"b\"\"", "\"", data, fixed = TRUE)
 data <- gsub("\"\"\"", "\"", data, fixed = TRUE)
 data <- gsub("\"b'", "\"", data, fixed = TRUE)
@@ -59,7 +62,10 @@ data <- read_csv("2022-04-28/RestoReviewRawdataClean.csv") %>%
   mutate(reviewDate = gsub("mei", "may.", reviewDate)) %>%
   mutate(reviewDate = gsub("okt", "oct", reviewDate)) %>%
   mutate(reviewDate = strptime(reviewDate, "%d %b. %Y")) %>% 
-  mutate(reviewDate = as.POSIXct(reviewDate))
+  mutate(reviewDate = as.POSIXct(reviewDate)) #%>%
+#  mutate(avgPrice = as.numeric(avgPrice))
+
+data %>% select(avgPrice) %>% table()
 
 data %>% select('reviewText') %>% 
   filter(stringr::str_detect(reviewText, fixed("\\xe2"))) %>% first()
