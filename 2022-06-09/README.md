@@ -1,3 +1,1 @@
-# BBC Plots
-
-Plot as a BBC does.
+# Dutch restaurants reviews analysis 
