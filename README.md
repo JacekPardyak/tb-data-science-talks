@@ -1,4 +1,4 @@
 # Data Science Talks
 
 
-![](logo.svg)
+![](WWW/logo.svg)
