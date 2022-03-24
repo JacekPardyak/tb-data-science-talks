@@ -1,9 +1,39 @@
 
+h2 {
+  text-align: center;
+  position: fixed;
+  top: 26%;
+  left: 17%;
+/*  transform: translate(100%, 100%); */
+  font-family: 'Open Sans';
+  color: #17ace3;
+}
+
+/*
+h2::first-letter{
+  color: #1c3f6e;
+/*  font-size: 200%; 
+  color: #17ace3;
+}
+*/
+
+
+/* 
+h2 {
+  text-align: center;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+
 .emphasized {
   color: blue;
   font-size: 1.2em;
 }
 
+*/
 
 .gdbar img {
   width: 300px !important;
@@ -16,9 +46,17 @@
   height: 170px !important;
 }
 
+/* move all but title slide logo
 slides > slide:not(.nobackground):before {
   width: 150px;
   height: 75px;
   background-size: 150px 75px;
+  background-position: 10px -30px;
 }
-
+*/
+ slides > slide:not(.title-slide) {
+   background-image: url("logo.svg");
+   background-size: 10%;
+   background-repeat: no-repeat;
+   background-position: 3% 3%;
+ }
