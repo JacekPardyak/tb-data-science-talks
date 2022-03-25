@@ -1,0 +1,27 @@
+h2 {
+  color: #1c3f6e !important;
+}
+
+h2::first-letter {
+  color: #17ace3;
+  font-family: 'Open Sans';
+}
+
+.gdbar img {
+  width: 300px !important;
+  height: 150px !important;
+  margin: 8px 8px;
+}
+
+.gdbar {
+  width: 400px !important;
+  height: 170px !important;
+}
+
+slides > slide:not(.nobackground):before {
+  width: 150px;
+  height: 75px;
+  background-size: 150px 75px;
+}
+
+.forceBreak { -webkit-column-break-after: always; break-after: column; }
