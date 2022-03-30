@@ -1,9 +1,3 @@
 # Malicious domain names detection with H2O
 
-# References:
-
-Data science 
-- https://www.datasciencecourse.org/lectures/
-
-Machine learning
-- https://developers.google.com/machine-learning/crash-course/
+https://github.com/JacekPardyak/tb-data-science-talks/blob/master/2022-03-31/notebook.ipynb
