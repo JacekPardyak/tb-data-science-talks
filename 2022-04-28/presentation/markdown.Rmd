@@ -1,0 +1,250 @@
+---
+title: 'Create plots like BBC News'
+author: 'JG Pardyak'
+date: '28-Apr-2022'
+output: 
+  ioslides_presentation:
+    widescreen: true
+    logo: logo.svg
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+## <span>.</span>Outline
+
+- Recap of the March meeting
+
+- Why use graphics to tell a story?
+
+- How to plot in R?
+
+- Code Surgery - using `bbplot` library of BBC News data team
+
+
+## <span>.</span>Data Science Syllabus  {.columns-2}
+
+- Introduction
+
+- Data collection and scraping
+
+- Jupyter Notebook lab
+
+- Relational data
+
+- Visualization and data exploration
+
+- Vectors, matrices, and linear algebra
+
+- Graph and network processing
+
+- Free text and natural language processing
+
+- Introduction to machine learning
+  
+- Linear classification
+  
+- Nonlinear modeling, cross-validation
+  
+## <span>.</span>Data Science Syllabus - cont.  {.columns-2}
+
+- Basics of probability
+  
+- Maximum likelihood estimation, naïve Bayes
+  
+- Hypothesis testing and experimental design
+
+- Unsupervised learning
+
+- Recommender systems
+
+<p class="forceBreak"></p>  
+
+- Decision trees, interpretable models
+  
+- Deep learning
+
+- Big data and MapReduce methods
+  
+- Debugging data science
+  
+- A data science walkthrough
+  
+- The future of data science and Q&A  
+  
+**Source:** [Carnegie Mellon University](https://www.datasciencecourse.org/lectures/)
+  
+## <span>.</span>Data Science In The Wild {.columns-2}
+
+![](CRISP-DM_Process_Diagram.png){width=100%}
+
+<p class="forceBreak"></p>
+
+Cross-industry standard process for data mining. 
+Source: [wikipedia](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE, message=FALSE}
+# Loads the packages that we need.
+library(tidyverse) # metapackage of all tidyverse packages
+library(tidymodels) # metapackage of all tidymodels packages
+
+# Loads the iris data that we will use.
+data(iris)
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE, message=FALSE}
+# check the header
+iris %>% head()
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE, message=FALSE}
+# check the target variable
+iris %>% select(Species) %>% table()
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE, message=FALSE}
+# check the predictor variables
+my_plot <- iris %>%  
+  ggplot() +
+  aes(x=Sepal.Width, fill=Species) + 
+  geom_density(stat="density", alpha=I(0.2)) +
+  xlab("Sepal Width") +
+  ylab("Density") +
+  ggtitle("Density Curve of Sepal Width")
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r}
+my_plot
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Sets a random seed. By choosing this seed, our results will 
+# be reproducible. 
+set.seed(123)
+
+# This creates an rsplit object. We can use it to break our data
+# into a training set a test set.
+iris_split <- initial_split(iris, prop = 0.80)
+iris_split
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Now we break out data into a training set and a test set.
+iris_train <- training(iris_split)
+iris_test <- testing(iris_split)
+
+dim(iris_train)
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Define recipe.
+iris_recipe <-
+    recipe(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width,
+           data = iris_train)
+
+iris_recipe
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Preprocessing recipe.
+iris_prep <- prep(iris_recipe, training = iris_train)
+iris_prep
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Bake preprocessed recipe.
+train_ex <- bake(iris_prep, new_data = NULL)
+test_ex <- bake(iris_prep, new_data = iris_test)
+train_ex %>% head()
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Specify model.
+rf_model <- 
+    rand_forest(trees = 1000, min_n = 5) %>%
+    set_engine("ranger") %>%
+    set_mode("classification") 
+
+translate(rf_model)
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Specify workflow.
+rf_wflow <-
+    workflow() %>%
+    add_model(rf_model) %>%
+    add_recipe(iris_prep)
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Fit the model.
+rf_fit <- fit(rf_wflow, iris_train)
+rf_fit
+```
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Evaluate the model with Accuracy and Kappa.
+rf_fit %>% 
+    predict(test_ex) %>% 
+    bind_cols(test_ex) %>% 
+    metrics(truth = Species, estimate = .pred_class)
+```
+
+Accuracy is the proportion of the data that are predicted correctly.
+
+Kappa is a similar measure to `accuracy` very useful when one or more classes have large frequency distributions 
+
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+```{r, echo=TRUE}
+# Evaluate the model with Confusion Matrix.
+rf_fit %>% 
+  predict(test_ex) %>% 
+  bind_cols(test_ex) %>%
+  conf_mat(Species, .pred_class)
+```
+## <span>.</span>Hands on Data Science - 'Iris' Data Set
+
+Model deployment in `R`:
+
+- Web Service - `plumber`
+
+- Web Application - `shiny`
+
+## <span>.</span>Code Surgery - Malicious Domain Names 
+
+![](Capture.PNG)
+
+
+
