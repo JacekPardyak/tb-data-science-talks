@@ -33,8 +33,14 @@ library(tidyverse)
 
 *A picture is worth a thousand words* is an adage in multiple languages meaning that complex and sometimes multiple ideas can be conveyed by a single still image, which conveys its meaning or essence more effectively than a mere verbal description.
 
+~*~
+
+On the picture Provincial Government Buildings on the Meuse (Wikipedia)
 
 <p class="forceBreak"></p>  
+
+![](Provincial_Government_Buildings_on_the_Meuse.jpg){width=100%}
+
 
 ## <span>.</span>How to plot in R? {.columns-2}
 
