@@ -93,9 +93,12 @@ unwanted = c("\\xe2\\x99\\x82",
              "\\xe3\\x80\\x82",
              "\\xce\\xb6\\xce",
              "\\xb5\\xcf\\x83",
-             "\\xcf\\x84",
-             "\\xcf\\x8c",
-             "\\n")
+             "\\xef\\x81\\x8c",
+             "\\n",
+             "\\xcf",
+             "\\x84",
+             "\\xcf",
+             "\\x8c")
 for(x in unwanted){
   data <- gsub(x, " ", data, fixed = TRUE)
 }
@@ -116,7 +119,7 @@ data <- read_csv("2022-06-09/RestoReviewRawdataClean.csv") %>%
 summary(data)
 
 data %>% select('reviewText') %>% 
-  filter(stringr::str_detect(reviewText, fixed("\\x8c"))) %>% first()
+  filter(stringr::str_detect(reviewText, fixed("\\x91"))) %>% first()
 
 library(tidytext)
 tmp <- data %>% select(restoId, review_id, reviewText) %>% 
