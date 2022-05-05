@@ -17,6 +17,7 @@ data <- gsub("'\"", "\"", data, fixed = TRUE)
 
 
 data <- gsub("\\xc2\\xb4", "'", data, fixed = TRUE)
+data <- gsub("\\xc3\\x8c", "'", data, fixed = TRUE)
 
 data <- gsub("\\xc3\\xa0", "à", data, fixed = TRUE)
 data <- gsub("\\xc3\\xa1", "á", data, fixed = TRUE)
@@ -84,7 +85,17 @@ unwanted = c("\\xe2\\x99\\x82",
              "\\xe2\\x9d\\x93",
              "\\xe2\\x9a\\xa0",
              "\\xe2\\x9b\\xb7",
-             "\\xe2\\x98\\x83")
+             "\\xe2\\x98\\x83",
+             "\\xef\\xbc\\x8c",
+             "\\xe9\\x9d\\x9e",
+             "\\xe5\\xb8\\xb8",
+             "\\xe5\\xa5\\xbd",
+             "\\xe3\\x80\\x82",
+             "\\xce\\xb6\\xce",
+             "\\xb5\\xcf\\x83",
+             "\\xcf\\x84",
+             "\\xcf\\x8c",
+             "\\n")
 for(x in unwanted){
   data <- gsub(x, " ", data, fixed = TRUE)
 }
@@ -104,7 +115,8 @@ data <- read_csv("2022-06-09/RestoReviewRawdataClean.csv") %>%
   mutate(reviewDate = as.POSIXct(reviewDate)) 
 summary(data)
 
-#data %>% select('reviewText') %>% filter(stringr::str_detect(reviewText, fixed("\\xe2"))) %>% first()
+data %>% select('reviewText') %>% 
+  filter(stringr::str_detect(reviewText, fixed("\\x8c"))) %>% first()
 
 library(tidytext)
 tmp <- data %>% select(restoId, review_id, reviewText) %>% 
