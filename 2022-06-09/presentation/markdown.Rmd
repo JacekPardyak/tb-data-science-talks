@@ -18,18 +18,18 @@ library(tidyverse)
 
 - Recap of the April meeting
 
-- Text mining in R
+- Tidy text mining in R
 
 - TransIP / team.blue real project
 
 - Code Surgery - Dutch restaurants reviews analysis
 
 
-## <span>.</span>March meeting  {.columns-1}
+## <span>.</span>April meeting  {.columns-1}
 
-![](Capture2022-03-31.PNG){width=100%}
+![](Capture-2022-04-28.PNG){width=100%}
 
-## <span>.</span>Why use graphics to tell a story?  {.columns-2}
+## <span>.</span>Tidy text mining in R {.columns-2}
 
 *A picture is worth a thousand words* is an adage in multiple languages meaning that complex and sometimes multiple ideas can be conveyed by a single still image, which conveys its meaning or essence more effectively than a mere verbal description.
 
@@ -39,7 +39,7 @@ On the picture Provincial Government Buildings on the Meuse (Wikipedia)
 
 <p class="forceBreak"></p>  
 
-![](Provincial_Government_Buildings_on_the_Meuse.jpg){width=100%}
+ddd
 
 
 ## <span>.</span>How to plot in R? {.columns-2}
