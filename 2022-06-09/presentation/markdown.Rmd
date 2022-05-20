@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     widescreen: true
     logo: logo.svg
-    css: styles.css
+    css: ~/tb-data-science-talks/www/styles.css
 ---
 
 ```{r setup, include=FALSE}
@@ -20,111 +20,35 @@ library(tidyverse)
 
 - Tidy text mining in R
 
-- TransIP / team.blue real project
+- Tidy text classification in R
+
+- TransIP / team.blue previous project
 
 - Code Surgery - Dutch restaurants reviews analysis
 
 
 ## <span>.</span>April meeting  {.columns-1}
 
-![](Capture-2022-04-28.PNG){width=100%}
+![](Capture-2022-04-28.PNG){width=90%}
 
-## <span>.</span>Tidy text mining in R {.columns-2}
+## <span>.</span>Text mining in R {.columns-1}
 
-*A picture is worth a thousand words* is an adage in multiple languages meaning that complex and sometimes multiple ideas can be conveyed by a single still image, which conveys its meaning or essence more effectively than a mere verbal description.
+Text mining (also referred to as text analytics) is an artificial intelligence (AI) technology that uses natural language processing (NLP) to transform the free (unstructured) text in documents and databases into normalized, structured data suitable for analysis or to drive machine learning (ML) algorithms.
 
-~*~
+https://www.tidytextmining.com/ (Welcome to Text Mining with R)
 
-On the picture Provincial Government Buildings on the Meuse (Wikipedia)
+## <span>.</span>Text classification in R {.columns-1}
 
-<p class="forceBreak"></p>  
+Text classification is a machine learning technique that assigns a set of predefined categories to open-ended text. Text classifiers can be used to organize, structure, and categorize pretty much any kind of text – from documents, medical studies and files, and all over the web.
 
-ddd
+https://smltar.com/ (Supervised Machine Learning for Text Analysis in R)
 
+## <span>.</span>Support Tickets Classification  {.columns-1}
 
-## <span>.</span>How to plot in R? {.columns-2}
-
-Some plotting verbs in `R`:
-
-- `plot`
-
-- `pairs`
-
-- `hist`
-
-- `autoplot`
-
-- `scatterplot3d`
-
-- `ggplot`
-
-- `...`
-
-<p class="forceBreak"></p>
-
-```{r, echo=TRUE, eval=FALSE}
-library(tidyverse)
-df <- data.frame(
-  x = c(1:100),
-  y = runif(100),
-  class = sample(c('0', '1'), 
-                 size = 100, 
-                 replace = T)
-)
-df %>% ggplot() +
-  aes(x = x, y = y, colour = class) +
-  geom_point() +
-  labs(title = 'My important insights')
-```
-
-Cheatsheet: 
-[https://github.com/rstudio/cheatsheets/
-blob/main/data-visualization-2.1.pdf](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
+![](Capture-stc.PNG){width=80%}
 
 
-## <span>.</span>How to plot in R? {.columns-1}
+## <span>.</span>Code Surgery - Dutch restaurants reviews
 
-```{r, echo=FALSE, eval=TRUE}
-library(tidyverse)
-df <- data.frame(
-  x = c(1:100),
-  y = runif(100),
-  class = sample(c('0', '1'), 
-                 size = 100, 
-                 replace = T)
-)
-df %>% ggplot() +
-  aes(x = x, y = y, colour = class) +
-  geom_point() +
-  labs(title = 'My important insights')
-```
-
-## <span>.</span>How to plot in R? {.columns-1}
-
-```{r, echo=TRUE, eval=FALSE, message=FALSE}
-iris %>%  
-  ggplot() +
-  aes(x=Sepal.Width, fill=Species) + 
-  geom_density(stat="density", alpha=I(0.2)) +
-  xlab("Sepal Width") +
-  ylab("Density") +
-  ggtitle("Density Curve of Sepal Width")
-```
-
-## <span>.</span>How to plot in R? {.columns-1}
-
-```{r, echo=FALSE, message=FALSE}
-iris %>%  
-  ggplot() +
-  aes(x=Sepal.Width, fill=Species) + 
-  geom_density(stat="density", alpha=I(0.2)) +
-  xlab("Sepal Width") +
-  ylab("Density") +
-  ggtitle("Density Curve of Sepal Width")
-```
-
-
-## <span>.</span>Code Surgery - plot like BBC News
-
-![](Capture2022-04-28.PNG){width=100%}
+![](Capture-2022-06-09.PNG){width=65%}
 

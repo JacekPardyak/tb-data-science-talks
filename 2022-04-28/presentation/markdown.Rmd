@@ -5,8 +5,8 @@ date: '28-Apr-2022'
 output: 
   ioslides_presentation:
     widescreen: true
-    logo: logo.svg
-    css: styles.css
+    logo: ~/tb-data-science-talks/www/logo.svg
+    css: ~/tb-data-science-talks/www/styles.css
 ---
 
 ```{r setup, include=FALSE}
