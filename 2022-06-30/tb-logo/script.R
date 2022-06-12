@@ -149,8 +149,9 @@ files = paste("./2022-06-30/tb-logo/logo", c('shp', 'shx', 'dbf'), sep = ".")
 
 tar('./2022-06-30/tb-logo/logo.gz', files = files)
 unlink(files)
-untar('./2022-06-30/tb-logo/logo.gz')
 
+
+untar('./2022-06-30/tb-logo/logo.gz')
 tmp = st_read("./2022-06-30/tb-logo/logo.shp")
 tmp %>% ggplot() +
   geom_sf()
