@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "restaurants",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::28992" } },
+"features": [
+{ "type": "Feature", "properties": { "restoId": 255757.0, "restoName": "India Palace", "address": "Natuursteenlaan 157 2719 TB Zoetermeer Nederland", "postcode": "2719TB" }, "geometry": { "type": "Point", "coordinates": [ 93005.538, 449961.826 ] } },
+{ "type": "Feature", "properties": { "restoId": 236127.0, "restoName": "Mother India", "address": "Ter Haarstraat 14 1053 LJ Amsterdam Nederland", "postcode": "1053LJ" }, "geometry": { "type": "Point", "coordinates": [ 119748.577, 487054.322 ] } },
+{ "type": "Feature", "properties": { "restoId": 246631.0, "restoName": "Italiaanse IJssalon Capriccio", "address": "Strandweg 71 2586 JL Den Haag Nederland", "postcode": "2586JL" }, "geometry": { "type": "Point", "coordinates": [ 79361.366, 459065.131 ] } },
+{ "type": "Feature", "properties": { "restoId": 326635.0, "restoName": "Winehouse Somm", "address": "Baffinstraat 1 1057 SV Amsterdam Nederland", "postcode": "1057SV" }, "geometry": { "type": "Point", "coordinates": [ 118706.436, 486882.518 ] } },
+{ "type": "Feature", "properties": { "restoId": 427377.0, "restoName": "De Herberg van Anderen", "address": "Nijend 2 9465 TR Anderen Nederland", "postcode": "9465TR" }, "geometry": { "type": "Point", "coordinates": [ 242064.144, 557369.624 ] } },
+{ "type": "Feature", "properties": { "restoId": 243427.0, "restoName": "Omonia", "address": "Haarlemmerstraat 244 2312 GK Leiden Nederland", "postcode": "2312GK" }, "geometry": { "type": "Point", "coordinates": [ 94126.95, 464004.133 ] } },
+{ "type": "Feature", "properties": { "restoId": 235501.0, "restoName": "Oortjeshekken", "address": "Erlecomsedam 4 6576 JW Ooij Nederland", "postcode": "6576JW" }, "geometry": { "type": "Point", "coordinates": [ 192888.066, 430586.591 ] } },
+{ "type": "Feature", "properties": { "restoId": 229435.0, "restoName": "Bamboo-Inn", "address": "Oude Provincialeweg 23 5527 BM Hapert Nederland", "postcode": "5527BM" }, "geometry": { "type": "Point", "coordinates": [ 145661.985, 375745.518 ] } },
+{ "type": "Feature", "properties": { "restoId": 233617.0, "restoName": "Amrath Hotel Brabant Brabant", "address": "Heerbaan 4 4817 NL Breda Nederland", "postcode": "4817NL" }, "geometry": { "type": "Point", "coordinates": [ 115292.502, 399656.063 ] } },
+{ "type": "Feature", "properties": { "restoId": 257237.0, "restoName": "Falafel Masters", "address": "Edisonstraat 131 5621 HM Eindhoven Nederland", "postcode": "5621HM" }, "geometry": { "type": "Point", "coordinates": [ 160150.432, 384806.579 ] } }
+]
+}
