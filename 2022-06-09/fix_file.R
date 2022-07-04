@@ -131,3 +131,8 @@ data <- data %>% select(-reviewText)%>% left_join(tmp) %>%
 
 write_csv(data, "2022-06-09/reviews.csv.gz")
 
+library(tidyverse)
+df <- read_csv("2022-06-09/reviews.csv.gz")
+
+df %>% filter(str_detect(address, 'Den Haag')) %>% group_by(restoName) %>%
+  tally(sort = TRUE)
