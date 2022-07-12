@@ -1,5 +1,1 @@
-# Mall Customer Segmentation Data
-
-? spark
-
-? h2o
+# 3 and higher dimensional plots
