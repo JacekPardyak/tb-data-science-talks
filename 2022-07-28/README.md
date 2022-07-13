@@ -1,1 +1,1 @@
-# 3 and higher dimensional plots
+# Three and higher dimensional plots
