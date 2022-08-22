@@ -1,0 +1,52 @@
+---
+title: MWE
+author: "Raniere Silva"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#reticulate::use_condaenv('faxitron')
+```
+
+```{python include=FALSE}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('agg')
+```
+
+(ref:mwe) Some text.
+
+```{python mwe, echo = FALSE, results = FALSE, message = FALSE, warning = FALSE, fig.cap = '(ref:mwe)'}
+data = {
+  'c': ['R', 'T', 'R', 'T'],
+  'r': ['1', '1', '2', '2'],
+  'x': [1, 1, 1, 1],
+  'y': [1, 2, 2, 1]
+} 
+
+df = pd.DataFrame(data)
+
+g = sns.FacetGrid(
+  df,
+  col="c",
+  row="r",
+  sharex=False,
+  sharey=False,
+  despine=False,
+  subplot_kws=dict(projection='polar'),
+  palette="Blues"
+)
+_ = g.map_dataframe(
+  sns.scatterplot,
+  x="x",
+  y="y"
+)
+_ = g.set_titles(
+  row_template="{row_name}",
+  col_template="{col_name}"
+)
+plt.show()
+```

@@ -1,0 +1,99 @@
+---
+title: '3 and higher dimensional plots'
+author: 'JG Pardyak'
+date: '28-Jul-2022'
+output: 
+  ioslides_presentation:
+    widescreen: true
+    logo: logo.svg
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+## <span>.</span>Outline
+
+- Recap of the July meeting
+
+- Cluster analysis 
+
+- `graphics` library
+
+- Code Surgery - Customer Segmentation
+
+
+## <span>.</span>July meeting  {.columns-1}
+
+Spatial analysis
+
+![](Capture-2022-07-28.PNG){width=65%}
+
+## <span>.</span>Cluster analysis  {.columns-1}
+
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters).
+
+##  <span>.</span>code  {.columns-1}
+
+```{r}
+iris
+```
+
+
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+import seaborn as sns
+from sklearn.cluster import KMeans 
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import MinMaxScaler
+```
+
+
+
+## <span>.</span>`graphics` library {.columns-2}
+
+```{r, echo=TRUE, eval=FALSE}
+# simple right circular cone
+cone <- function(x, y){
+sqrt(x ^ 2 + y ^ 2)
+}
+ 
+# prepare variables
+x <- y <- seq(-1, 1, length = 30)
+z <- outer(x, y, cone)
+ 
+# plot the 3D surface
+persp(x, y, z)
+```
+
+<p class="forceBreak"></p>
+
+```{r, echo=FALSE, eval=TRUE}
+cone <- function(x, y){
+    sqrt(x ^ 2 + y ^ 2)
+    }
+x <- y <- seq(-1, 1, length = 30)
+z <- outer(x, y, cone)
+persp(x, y, z)
+```
+
+## <span>.</span>`rgl` library {.columns-2}
+
+yyy
+
+<p class="forceBreak"></p>
+
+```{r, echo=FALSE, eval=TRUE}
+# fff
+```
+
+
+## <span>.</span>Code Surgery - Customer Segmentation
+
+![](Capture-2022-08-25.PNG){width=65%}
+
