@@ -129,6 +129,25 @@ plt.savefig("hier_clust.svg")
 ```
 [hier_clust.svg](hier_clust.svg) 
 
+## <span>.</span>`DBSCAN` algorithm{.columns-1}
+
+```{python, echo = TRUE, warning = FALSE, message = FALSE}
+from sklearn.cluster import DBSCAN 
+iris = pd.read_csv("iris.csv")
+db = DBSCAN() #eps=0.3, min_samples=10)
+clust = db.fit(iris.loc[:, iris.columns != 'Species'])
+clust = clust.labels_
+clust = pd.DataFrame(clust, columns = ['Cluster'])
+df = iris.join(clust)
+df.head()
+```
+
+## <span>.</span>`DBSCAN` algorithm{.columns-1}
+
+```{python, echo = TRUE, warning = FALSE, message = FALSE}
+pd.crosstab(df["Species"], df["Cluster"])
+```
+
 ## <span>.</span>Code Surgery - Customer Segmentation
 
 ![](Capture-2022-08-25.PNG){width=65%}

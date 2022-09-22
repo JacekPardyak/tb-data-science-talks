@@ -1,7 +1,7 @@
 ---
-title: '3 and higher dimensional plots'
+title: 'Data Science with Spark'
 author: 'JG Pardyak'
-date: '28-Jul-2022'
+date: '29-Sep-2022'
 output: 
   ioslides_presentation:
     widescreen: true
@@ -16,20 +16,22 @@ library(tidyverse)
 
 ## <span>.</span>Outline
 
-- Recap of the July meeting
+- Recap of the August meeting
 
-- Cluster analysis 
+- Data Science 💻
 
-- `graphics` library
+- Spark ❇️
+
+- Data Science + Spark = 🥳
 
 - Code Surgery - Customer Segmentation
 
 
-## <span>.</span>July meeting  {.columns-1}
+## <span>.</span>August meeting  {.columns-1}
 
-Spatial analysis
+Cluster analysis 
 
-![](Capture-2022-07-28.PNG){width=65%}
+![](Capture-2022-08-25.PNG){width=65%}
 
 ## <span>.</span>Cluster analysis  {.columns-1}
 
@@ -40,19 +42,6 @@ Cluster analysis or clustering is the task of grouping a set of objects in such 
 ```{r}
 iris
 ```
-
-
-
-```{python}
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt 
-import seaborn as sns
-from sklearn.cluster import KMeans 
-from sklearn.metrics import silhouette_score
-from sklearn.preprocessing import MinMaxScaler
-```
-
 
 
 ## <span>.</span>`graphics` library {.columns-2}
