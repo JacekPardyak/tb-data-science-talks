@@ -10,7 +10,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 ```
 
@@ -24,7 +23,7 @@ library(tidyverse)
 
 - Data Science + Spark = 🥳
 
-- Code Surgery - Customer Segmentation
+- Code Surgery : Customer Segmentation
 
 
 ## <span>.</span>August meeting  {.columns-1}
@@ -33,56 +32,149 @@ Cluster analysis
 
 ![](Capture-2022-08-25.PNG){width=65%}
 
-## <span>.</span>Cluster analysis  {.columns-1}
+## <span>.</span>Spark {.columns-2}
 
-Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters).
+**Apache Spark** is an open-source unified analytics engine for large-scale data processing.
 
-##  <span>.</span>code  {.columns-1}
+Initial release: 8 yo
+
+Latest version: 3.3 
+
+<p class="forceBreak"></p>
+
+![](Apache_Spark_logo.svg)
+
+## <span>.</span>Interacting with Spark from Python {.columns-1}
+
+```{python, eval = FALSE}
+from pyspark.sql import SparkSession
+sc = SparkSession.builder.getOrCreate()
+sqlContext.sql("show tables in jck").show()
+```
+
+```
++--------+--------------------+-----------+
+|database|           tableName|isTemporary|
++--------+--------------------+-----------+
+|     jck|            contract|      false|
+|     jck|                iris|      false|
+|     jck|   kaplanmeierfitter|      false|
+|     jck|recommender_contract|      false|
+|     jck|recommender_contr...|      false|
+|     jck|    select_productid|      false|
+|     jck|             tickets|      false|
++--------+--------------------+-----------+
+```
+
+##  <span>.</span>Interacting with Spark from R {.columns-1}
+
+```{r, warning=FALSE, message=FALSE}
+library(sparklyr)
+
+sc <- spark_connect(master = Sys.getenv("master"), spark_home = Sys.getenv("spark_home")) 
+
+connection_is_open(sc)
+
+```
+
+##  <span>.</span>K-Means Clustering in Spark {.columns-1}
 
 ```{r}
-iris
+iris_tbl <- copy_to(sc, iris, "iris", overwrite = TRUE)
+
+iris_tbl
 ```
 
+##  <span>.</span>K-Means Clustering in Spark {.columns-1}
 
-## <span>.</span>`graphics` library {.columns-2}
+```{r}
+kmeans_model <- iris_tbl %>%
+  ml_kmeans(k = 3, features = c("Petal_Length", "Petal_Width"))
 
-```{r, echo=TRUE, eval=FALSE}
-# simple right circular cone
-cone <- function(x, y){
-sqrt(x ^ 2 + y ^ 2)
-}
- 
-# prepare variables
-x <- y <- seq(-1, 1, length = 30)
-z <- outer(x, y, cone)
- 
-# plot the 3D surface
-persp(x, y, z)
+kmeans_model
+```
+
+##  <span>.</span>K-Means Clustering in Spark {.columns-1}
+
+```{r}
+predicted <- ml_predict(kmeans_model, iris_tbl) %>%
+  collect()
+
+table(predicted$Species, predicted$prediction)
+
+```
+
+##  <span>.</span>K-Means Clustering in Spark {.columns-2}
+
+```{r, eval=FALSE}
+predicted %>%
+ggplot(aes(Petal_Length, Petal_Width)) +
+geom_point(aes(Petal_Width, Petal_Length,
+          col = factor(prediction + 1)),
+size = 2, alpha = 0.5) +
+geom_point(
+data = kmeans_model$centers, 
+aes(Petal_Width, Petal_Length),
+col = scales::muted(
+  c("red", "green", "blue")),
+pch = "x", size = 12) +
+scale_color_discrete(
+name = "Predicted Cluster",
+labels = paste("Cluster", 1:3)) +
+labs(
+x = "Petal Length",
+y = "Petal Width")
 ```
 
 <p class="forceBreak"></p>
 
-```{r, echo=FALSE, eval=TRUE}
-cone <- function(x, y){
-    sqrt(x ^ 2 + y ^ 2)
-    }
-x <- y <- seq(-1, 1, length = 30)
-z <- outer(x, y, cone)
-persp(x, y, z)
+```{r, echo=FALSE}
+predicted %>%
+  ggplot(aes(Petal_Length, Petal_Width)) +
+  geom_point(aes(Petal_Width, Petal_Length, col = factor(prediction + 1)),
+    size = 2, alpha = 0.5
+  ) +
+  geom_point(
+    data = kmeans_model$centers, aes(Petal_Width, Petal_Length),
+    col = scales::muted(c("red", "green", "blue")),
+    pch = "x", size = 12
+  ) +
+  scale_color_discrete(
+    name = "Predicted Cluster",
+    labels = paste("Cluster", 1:3)
+  ) +
+  labs(
+    x = "Petal Length",
+    y = "Petal Width",
+    title = "K-Means Clustering",
+    subtitle = "Use Spark.ML to predict cluster membership with the iris dataset."
+  )
+
 ```
 
-## <span>.</span>`rgl` library {.columns-2}
+##  <span>.</span>MLlib - Machine Learning algorithms in Spark {.columns-2}
 
-yyy
+- Spark ML - Regression
+
+- Spark ML - Classification
+
+- Spark ML - Tree
+
+- Spark ML - Clustering
+
+- Spark ML - Text
 
 <p class="forceBreak"></p>
 
-```{r, echo=FALSE, eval=TRUE}
-# fff
-```
+- Spark ML - Recommendations
 
+- Spark ML - Hyper-parameter tuning
 
-## <span>.</span>Code Surgery - Customer Segmentation
+- Spark ML - Evaluation
 
-![](Capture-2022-08-25.PNG){width=65%}
+- Spark ML - Operations
+
+## <span>.</span>Code Surgery - Data Science with Spark
+
+![](Capture-2022-09-29.PNG){width=65%}
 
