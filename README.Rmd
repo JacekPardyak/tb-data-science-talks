@@ -11,19 +11,22 @@ output:
 
 ![](www/logo.svg)
 
-# ddd
-
-```{r, echo=FALSE}
-dirs <- dir(full.names = TRUE, recursive=F, pattern="2022")
-```
 
 ```{r, echo=FALSE, message=FALSE}
 library(tidyverse)
-tbl = tibble(date = dirs) %>%
-  mutate(url = paste("[", date, "](", date, ")"))
+fun <- function(x){
+  read_lines(paste(x, "README.md", sep = "/")) %>% .[[1]] %>%
+  gsub("# ", "", .)
+}
+
+tbl = dir(full.names = TRUE, recursive=F, pattern="2022") %>%
+  tibble(when = .) %>%
+  rowwise() %>%
+  mutate(what = fun(when) ) %>%
+  mutate(where = paste("[", when, "](", when, ")")) %>%
+  mutate(when = gsub("./", "", when) )
 
 knitr::kable(tbl, "pipe")
 ```
 
-[](cc)
 
