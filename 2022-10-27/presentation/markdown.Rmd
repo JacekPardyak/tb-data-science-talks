@@ -1,0 +1,44 @@
+---
+title: 'Data Science meets Law'
+author: 'O Haidar & JG Pardyak'
+date: '27-Oct-2022'
+output: 
+  ioslides_presentation:
+    widescreen: true
+    logo: logo.svg
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+## <span>.</span>Outline {.columns-1}
+
+- Recap of the September meeting
+
+- Data Science 💻
+
+- Law **§**
+
+- Code Surgery : EUR-Lex Network Analysis
+
+
+## <span>.</span>September meeting  {.columns-1}
+
+Data Science with Spark 
+
+![](Capture-2022-09-29.PNG){width=65%}
+
+## <span>.</span>Spark {.columns-2}
+
+...
+
+<p class="forceBreak"></p>
+
+...
+
+## <span>.</span>Code Surgery - EUR-Lex Network Analysis
+
+![](Capture-2022-10-27.PNG){width=65%}
+
