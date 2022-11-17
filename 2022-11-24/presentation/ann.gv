@@ -1,0 +1,145 @@
+digraph ann {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	edge [fontname="Helvetica,Arial,sans-serif"]
+	rankdir=LR;
+		splines=line
+        nodesep=.05;
+	subgraph cluster_0 {
+		node [style=filled];
+		i0 i1 i2 ;
+		label = "Input layer";
+		color=red
+	}
+
+	subgraph cluster_1 {
+		node [style=filled];
+		h0 h1 h2 h3;
+		label = "Hidden layer";
+		color=blue
+	}
+	
+	subgraph cluster_2 {
+		node [style=filled];
+		o0 o1 ;
+		label = "Output layer";
+		color=green
+	}
+#	start -> i0 #[style = 'invis'];
+#	start -> h0 #[style = 'invis'];
+#	start -> o0 #[style = 'invis'];
+
+	i0 -> h0;
+	i0 -> h1;
+	i0 -> h2;
+	i0 -> h3;
+	
+	i1 -> h0;
+	i1 -> h1;
+	i1 -> h2;
+	i1 -> h3;
+	
+	i2 -> h0;
+	i2 -> h1;
+	i2 -> h2;
+	i2 -> h3;
+
+	h0 -> o0;
+	h0 -> o1;
+	h1 -> o0;
+	h1 -> o1;
+	h2 -> o0;
+	h2 -> o1;
+	h3 -> o0;
+	h3 -> o1;
+	
+#	i2 -> end;
+#	h3 -> end;
+#	o1 -> end;
+
+#	start [style = 'invis']; 
+#	end [shape=Msquare];
+
+  i0 [shape = circle, label='']
+  i1 [shape = circle, label='']
+  i2 [shape = circle, label='']
+  h0 [shape = circle, label='']
+  h1 [shape = circle, label='']
+  h2 [shape = circle, label='']
+  h3 [shape = circle, label='']
+  o0 [shape = circle, label='']
+  o1 [shape = circle, label='']  
+}
+
+#digraph ann {
+#  graph [ rankdir = TB]
+#    node []
+#    'Artificial Neural Network' [shape = none, fontsize = 70, fontname = Helvetica]
+    
+#  subgraph cluster_0  { 
+#  node [shape = none, fontsize = 40, fontname = Helvetica]
+#    Input
+#  node [shape = circle, style=filled, fillcolor = burlywood1]
+#    i1 [label='in1']
+#    i2 [label='in2']
+#    i3 [label='in3']
+#  edge [color = grey]
+#    Input -> i1 [style = 'invis'];
+#    i1 -> i2
+#    i2 -> i3
+#  }
+  
+#  subgraph cluster_1  {
+#  node [shape = none, fontsize = 40, fontname = Helvetica]
+#    Hidden
+#  node [shape = circle, style=filled, fillcolor = burlywood1]
+#    h1 [label='hi1']
+#    h2 [label='hi2']
+#    h3 [label='hi3']
+#    h4 [label='hi4']
+#  edge [color = grey]
+#    Hidden -> h1 [style = 'invis'];
+#    h1 -> h2
+#    h2 -> h3
+#    h3 -> h4
+#  }
+
+#  subgraph cluster_2  {
+#  node [shape = none, fontsize = 40, fontname = Helvetica]
+#    Output
+#  node [shape = circle, style=filled, fillcolor = burlywood1]
+#    o1 [label='ou1']
+#    o2 [label='ou2']
+#  edge [color = grey]
+#    Output -> o1 [style = 'invis'];
+#    o1 -> o2
+#  }
+
+#edge[color = grey]
+#    i1 -> h1
+#    i1 -> h2
+#    i3 -> h4
+#i3 -> h1
+#i1 -> h2
+#i2 -> h2
+#i3 -> h2
+#i1 -> h3
+#i2 -> h3
+#i3 -> h3
+#i1 -> h4
+#i2 -> h4
+#i3 -> h4
+#h1 -> o1
+#h2 -> o1
+#h3 -> o1
+#h1 -> o2
+#h2 -> o2
+#h3 -> o2
+
+
+
+'Artificial Neural Network' ->  '' [style = 'invis'];
+'Artificial Neural Network' ->  'Hidden' [style = 'invis'];
+'Artificial Neural Network' ->  'Output' [style = 'invis'];
+
+    }
