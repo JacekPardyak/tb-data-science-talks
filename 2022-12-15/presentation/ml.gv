@@ -1,0 +1,29 @@
+digraph ml {
+
+graph [layout = dot,
+       rankdir = LR]
+
+node [shape = none,
+      color = white]
+  r1 [label='Rules']
+  r2 [label='Rules']
+  a1 [label='Answers']
+  a2 [label='Answers']
+  d1 [label='Data']
+  d2 [label='Data']
+  
+node [shape = box,
+      color = black]
+'Classical \n Programming'
+'Machine \n Learning'
+
+edge [color = grey]
+d1 -> 'Classical \n Programming'
+r1 -> 'Classical \n Programming'
+'Classical \n Programming' -> a1
+
+  d2 -> 'Machine \n Learning'
+  a2 -> 'Machine \n Learning'
+  'Machine \n Learning' -> r2
+
+}
