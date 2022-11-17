@@ -1,0 +1,29 @@
+---
+title: "readme"
+author: ja
+date: 2022
+output:
+  md_document:
+    variant: markdown_github
+---
+
+# Data Science Talks
+
+![](www/logo.svg)
+
+# ddd
+
+```{r, echo=FALSE}
+dirs <- dir(full.names = TRUE, recursive=F, pattern="2022")
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+tbl = tibble(date = dirs) %>%
+  mutate(url = paste("[", date, "](", date, ")"))
+
+knitr::kable(tbl, "pipe")
+```
+
+[](cc)
+
