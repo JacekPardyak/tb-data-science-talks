@@ -51,8 +51,8 @@
        y="0" />
     <path
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 18.771998,2.5968529 C 13.640823,2.6045429 12.444979,2.776075 7.4306303,3.0370547 3.5946236,11.404549 27.107418,19.704413 17.402703,22.127359 8.5463344,24.338501 3.0509802,21.914652 9.9763136,11.678779"
+       d="M 8.2211432,8.9448774 C 18.912182,12.595963 23.574738,23.603908 13.41877,23.309405 3.2628029,23.014902 3.0947597,1.9074291 18.469533,2.0035137"
        id="path1013"
-       sodipodi:nodetypes="ccsc" />
+       sodipodi:nodetypes="czc" />
   </g>
 </svg>
