@@ -9,7 +9,7 @@
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="sample.svg"
-   inkscape:export-filename="sample8.png"
+   inkscape:export-filename="sample2.png"
    inkscape:export-xdpi="25.4"
    inkscape:export-ydpi="25.4"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="6.0435466"
-     inkscape:cx="100.93411"
-     inkscape:cy="87.862316"
+     inkscape:zoom="3.0217733"
+     inkscape:cx="25.481726"
+     inkscape:cy="3.3093151"
      inkscape:window-width="2048"
      inkscape:window-height="1914"
      inkscape:window-x="5669"
@@ -51,8 +51,8 @@
        y="0" />
     <path
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 6.3042451,4.8157425 C 8.0022966,1.7551712 17.975274,2.255068 19.781364,5.2531532 24.009718,12.272164 2.4471296,16.640182 6.6725525,23.660957 9.1967959,27.855128 19.068818,27.575636 21.445497,23.296118"
+       d="M 4.8157427,3.8525939 C 28.926501,0.01530913 22.811606,12.843528 13.235829,13.985913 21.040507,13.639795 40.571286,25.967526 5.0074532,24.441518"
        id="path1013"
-       sodipodi:nodetypes="cssc" />
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>
