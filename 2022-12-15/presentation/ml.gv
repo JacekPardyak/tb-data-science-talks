@@ -1,29 +1,47 @@
 digraph ml {
 
 graph [layout = dot,
-       rankdir = LR]
+       rankdir = BT]
 
-node [shape = none,
-      color = white]
-  r1 [label='Rules']
-  r2 [label='Rules']
-  a1 [label='Answers']
-  a2 [label='Answers']
-  d1 [label='Data']
-  d2 [label='Data']
-  
+node [shape = ellipse,
+      color = black]
+  a [label='Ubuntu (or Win or macOS)']
+
+node [shape = triangle,
+      color = black]
+'CPU'
+'GPU'
+'TPU'
+
 node [shape = box,
       color = black]
-'Classical \n Programming'
-'Machine \n Learning'
+'H2O.ai'
+'TensorFlow'
+'Theano'
+'Keras'
+
+node [shape = circle,
+      color = black]
+'R'
+'Py'
+
 
 edge [color = grey]
-d1 -> 'Classical \n Programming'
-r1 -> 'Classical \n Programming'
-'Classical \n Programming' -> a1
+'CPU' -> a
+'GPU' -> a
+'TPU' -> a
 
-  d2 -> 'Machine \n Learning'
-  a2 -> 'Machine \n Learning'
-  'Machine \n Learning' -> r2
+a -> 'H2O.ai'
+a -> 'TensorFlow'
+a -> 'Theano'
 
+'TensorFlow' -> 'Keras'
+'Theano'-> 'Keras'
+
+'TensorFlow' -> 'Py'
+'Keras' -> 'Py'
+'Py' -> 'R'
+'H2O.ai'  -> 'Py'
+'H2O.ai'  -> 'R'
 }
+

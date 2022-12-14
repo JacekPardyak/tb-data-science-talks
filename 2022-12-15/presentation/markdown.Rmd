@@ -1,7 +1,7 @@
 ---
-title: 'Deep Learning part 1'
+title: 'Deep Learning part 2'
 author: 'JG Pardyak'
-date: '24-Nov-2022'
+date: '15-Dec-2022'
 output: 
   ioslides_presentation:
     widescreen: true
@@ -16,111 +16,31 @@ library(DiagrammeR)
 
 ## <span>.</span>Outline
 
-- Recap of the September meeting
+- Recap of the November meeting
 
-- Machine learning
+- Deep Learning Tools and Hardware
 
-- Deep Learning
-
-- Code Surgery : Image recognition (`R` with `CPU`) 
-
-In December:
-
-- Software and hardware for Deep Learning
-
-- Code Surgery : Voice recognition (`Py` with `GPU` / `TPU`) 
+- Code Surgery : Audio Classification (`Py` with `GPU`) 
 
 
-## <span>.</span>September meeting  {.columns-1}
+## <span>.</span>November meeting {.columns-1}
 
-```{r, echo = F, fig.align = 'center', out.width = "50%", fig.cap = "Data Science Meets Law. Network analysis."}
-knitr::include_graphics('Capture-2022-10-27.PNG')
+```{r, echo = F, fig.align = 'center', out.width = "50%", fig.cap = "Vision Classification (`R` with `CPU`) "}
+knitr::include_graphics('Capture-2022-11-24.PNG')
 ```
 
 
-## <span>.</span>Machine Learning & Data Science {.columns-1}
-
-
-```{r, echo = F, fig.align = 'center', out.width = "40%", fig.cap = "The edible flowers are attractive to the eye and stomach (www.gardengatemagazine.com)"}
-knitr::include_graphics('edible-flowers-lead.jpg')
-```
-The purpose of ML is to replace a human in some tasks while the purpose of DS is to explain the world to a human. Both still use the same concepts.
-
-## <span>.</span>Machine Learning & Classical Programming {.columns-1}
+## <span>.</span>Deep Learning Tools {.columns-1}
 
 ```{r, echo=FALSE}
 grViz("./ml.gv")
 ```
 
 
-## <span>.</span>Deep Learning{.columns-1}
-
-Deep Learning is Machine Learning using Artificial Neural Networks. 
-
-The "deep" adjective refers to multiple layers in a network.
-
-## <span>.</span>Artificial Neural Network{.columns-1}
-
-```{r, echo=FALSE}
-grViz("./ann.gv")
-```
-
-## <span>.</span>Applications {.columns-2}
-
-- Automatic speech recognition
-
-- Image recognition
-
-- Visual art processing
-
-- Natural language processing
-
-- Drug discovery and toxicology
-
-- Customer relationship management
-
-- Recommendation systems
-
-- Bioinformatics
-
-<p class="forceBreak"></p>
-
-- Medical image analysis
-
-- Mobile advertising
-
-- Image restoration
-
-- Financial fraud detection
-
-- Image generating
-
-- Military
-
-- Partial differential equations
-
-- Image Reconstruction
-
-- Epigenetic clock
-
-## <span>.</span> Application limitations {.columns-1}
-
-- Model explainability (loans)
-
-In the [EU](https://www.eba.europa.eu/regulation-and-policy/credit-risk/guidelines-on-loan-origination-and-monitoring) and in particular in [PL](https://www.knf.gov.pl/knf/pl/komponenty/img/Komunikat_UKNF_ws_prawa_do_uzyskania_wyjasnien_nt_oceny_zdolnosci_kredytowej_wersja_szczegolowa_70332.pdf)
-the bank must provide information on the measures that the applicant should take to remove the negative effects determining the lender's decision not to grant the loan.
-
-- Theory (it works, but why?)
-
-- Cyber threat (vulnerability to hacking and fraud)
-
-- Reliance on human microwork (Amazon Mechanical Turk)
-
-
 ## <span>.</span>Code Surgery
 
-```{r, echo = F, fig.align = 'center', out.width = "50%", fig.cap = "Image recognition (`R` with `CPU`) "}
-knitr::include_graphics('Capture-2022-11-24.PNG')
+```{r, echo = F, fig.align = 'center', out.width = "50%", fig.cap = "Audio Classification (`Py` with `GPU`) "}
+knitr::include_graphics('Capture-2022-12-15.PNG')
 ```
 
 
