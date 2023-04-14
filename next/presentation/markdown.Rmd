@@ -1,0 +1,49 @@
+---
+title: 'Apache Airflow'
+author: 'JG Pardyak'
+date: '15-Dec-2022'
+output: 
+  ioslides_presentation:
+    widescreen: true
+    logo: logo.svg
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+
+```
+
+## <span>.</span>Outline
+
+- Recap of the November meeting
+
+- Deep Learning Tools and Hardware
+
+- Code Surgery : Audio Classification (`Py` with `GPU`) 
+
+https://towardsdatascience.com/run-airflow-docker-1b83a57616fb
+
+https://levelup.gitconnected.com/how-to-install-apache-airflow-with-docker-7902be3301b8
+
+
+## <span>.</span>November meeting {.columns-1}
+
+```{r, echo = F, eval = F, fig.align = 'center', out.width = "50%", fig.cap = "Vision Classification (`R` with `CPU`) "}
+knitr::include_graphics('Capture-2022-11-24.PNG')
+```
+
+
+## <span>.</span>Deep Learning Tools {.columns-1}
+
+```{r, echo=FALSE}
+
+```
+
+
+## <span>.</span>Code Surgery
+
+```{r, echo = F, eval = F, fig.align = 'center', out.width = "50%", fig.cap = "Audio Classification (`Py` with `GPU`) "}
+knitr::include_graphics('Capture-2022-12-15.PNG')
+```
+
+
