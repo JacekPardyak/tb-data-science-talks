@@ -4,7 +4,7 @@ author: ja
 date: 2022
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 # Data Science Talks
@@ -19,7 +19,7 @@ fun <- function(x){
   gsub("# ", "", .)
 }
 
-tbl = dir(full.names = TRUE, recursive=F, pattern="2022") %>%
+tbl = dir(full.names = TRUE, recursive=F, pattern="[0-9]{4}") %>%
   tibble(when = .) %>%
   rowwise() %>%
   mutate(what = fun(when) ) %>%

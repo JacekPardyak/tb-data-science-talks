@@ -42,8 +42,8 @@ knitr::include_graphics('Capture-2022-11-24.PNG')
 
 ## <span>.</span>Code Surgery
 
-```{r, echo = F, eval = F, fig.align = 'center', out.width = "50%", fig.cap = "Audio Classification (`Py` with `GPU`) "}
-knitr::include_graphics('Capture-2022-12-15.PNG')
+```{r, echo = F, eval = T, fig.align = 'center', out.width = "50%", fig.cap = "Audio Classification (`Py` with `GPU`) "}
+knitr::include_graphics('./AirflowSignIn.PNG')
 ```
 
 
